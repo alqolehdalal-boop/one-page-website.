@@ -1,21 +1,92 @@
+
+Yamen Twearish
+22:23 (0 minutes ago)
+to me
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My One-Page Website</title>
+<title>My One Page Website</title>
+
+<style>
+body {
+font-family: Arial;
+margin: 0;
+}
+nav {
+background-color: #333;
+padding: 10px;
+text-align: center;
+}
+nav a {
+color: white;
+margin: 10px;
+text-decoration: none;
+}
+section {
+padding: 40px;
+}
+footer {
+background: #333;
+color: white;
+text-align: center;
+padding: 20px;
+}
+</style>
 </head>
+
 <body>
-<header>
+
+<!-- Navigation -->
+<nav>
+<a href="#home">Home</a>
+<a href="#video">Video</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- Home Section -->
+<section id="home">
 <h1>Welcome to My Website</h1>
-</header>
+<h2>About My Project</h2>
+<p>This is my one-page website project using HTML.</p>
 
-<main>
-<p>This is where my website content goes. I have now included the required head and body tags.</p>
-</main>
+<img src="https://via.placeholder.com/400" alt="Sample website image">
+</section>
 
+<!-- Video Section -->
+<section id="video">
+<h2>My Video</h2>
+<p>Here is a sample video:</p>
+
+<iframe width="400" height="250"
+src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+<h2>Contact Me</h2>
+
+<form>
+<label>Name:</label><br>
+<input type="text" name="name"><br><br>
+
+<label>Email:</label><br>
+<input type="email" name="email"><br><br>
+
+<label>Message:</label><br>
+<textarea name="message"></textarea><br><br>
+
+<input type="submit" value="Send">
+</form>
+</section>
+
+<!-- Footer -->
 <footer>
-<p>&copy; 2024 Dalal</p>
+<p>©️ 2026 My Website</p>
 </footer>
+
 </body>
 </html>
