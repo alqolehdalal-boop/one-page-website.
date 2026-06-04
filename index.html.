@@ -2,89 +2,99 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My One Page Website</title>
+<title>One Page Website</title>
 
 <style>
-body {
-font-family: Arial;
-margin: 0;
-}
-nav {
-background-color: #333;
-padding: 10px;
-text-align: center;
-}
-nav a {
-color: white;
+/* 1. Style your gallery images */
+.gallery-img {
+width: 200px;
+height: 150px;
+object-fit: cover;
+cursor: pointer;
 margin: 10px;
-text-decoration: none;
+transition: 0.3s;
 }
-section {
-padding: 40px;
+.gallery-img:hover { opacity: 0.7; }
+
+/* 2. The Modal Backdrop (Hidden by default) */
+.modal {
+display: none;
+position: fixed;
+z-index: 999;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9);
 }
-footer {
-background: #333;
-color: white;
-text-align: center;
-padding: 20px;
+
+/* 3. The Close Button */
+.close-btn {
+position: absolute;
+top: 15px;
+right: 35px;
+color: #f1f1f1;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+}
+
+/* 4. The Enlarged Image */
+.modal-content {
+display: block;
+margin: auto;
+max-width: 80%;
+max-height: 80%;
+position: relative;
+top: 50%;
+transform: translateY(-50%);
 }
 </style>
 </head>
-
 <body>
 
-<!-- Navigation -->
-<nav>
-<a href="#home">Home</a>
-<a href="#video">Video</a>
-<a href="#contact">Contact</a>
-</nav>
+<!-- Your website content, navigation, video, form go here -->
 
-<!-- Home Section -->
-<section id="home">
-<h1>Welcome to My Website</h1>
-<h2>About My Project</h2>
-<p>This is my one-page website project using HTML.</p>
+<!-- Gallery Section -->
+<h2>My Image Gallery</h2>
+<!-- Replace placeholder links with your actual image paths -->
+<img class="gallery-img" src="https://picsum.photos" alt="Image 1">
+<img class="gallery-img" src="https://picsum.photos" alt="Image 2">
 
-<img src="https://via.placeholder.com/400" alt="Sample website image">
-</section>
+<!-- The Lightbox Modal Structure -->
+<div id="lightboxModal" class="modal">
+<span class="close-btn">&times;</span>
+<img class="modal-content" id="modalImg">
+</div>
 
-<!-- Video Section -->
-<section id="video">
-<h2>My Video</h2>
-<p>Here is a sample video:</p>
+<!-- JavaScript Behavior -->
+<script>
+const modal = document.getElementById("lightboxModal");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.querySelector(".close-btn");
 
-<iframe width="400" height="250"
-src="https://www.youtube.com/embed/tgbNymZ7vqY">
-</iframe>
-</section>
+// Click image -> Open modal and set image source
+document.querySelectorAll(".gallery-img").forEach(img => {
+img.addEventListener("click", () => {
+modal.style.display = "block";
+modalImg.src = img.src;
+});
+});
 
-<!-- Contact Section -->
-<section id="contact">
-<h2>Contact Me</h2>
+// Click close button -> Hide modal
+closeBtn.addEventListener("click", () => {
+modal.style.display = "none";
+});
 
-<form>
-<label>Name:</label><br>
-<input type="text" name="name"><br><br>
-
-<label>Email:</label><br>
-<input type="email" name="email"><br><br>
-
-<label>Message:</label><br>
-<textarea name="message"></textarea><br><br>
-
-<input type="submit" value="Send">
-</form>
-</section>
-
-<!-- Footer -->
-<footer>
-<p>©️ 2026 My Website</p>
-</footer>
+// Optional: Click outside the image -> Hide modal
+modal.addEventListener("click", (e) => {
+if (e.target === modal) {
+modal.style.display = "none";
+}
+});
+</script>
 
 </body>
 </html>
+
+
